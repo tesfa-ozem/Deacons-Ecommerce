@@ -1,0 +1,634 @@
+<!doctype html>
+<html xmlns:v-on="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="anime.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <title>Products</title>
+    <style>
+        @media (min-width: 768px) {
+            .modal-xl {
+                width: 90%;
+                max-width:1000px;
+            }
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: 15% 80%;
+            grid-column-gap: 20px;
+
+        }
+
+        .item1{
+
+            background-color: #f9fdff;
+            overflow-y: hidden;
+            border-right: solid 1px #b1b1b1;
+            border-top: solid 1px #b1b1b1;
+            height: 700px;
+            border-bottom: solid 1px #b1b1b1;
+        }
+        .middle {
+            transition: .5s ease;
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        .container:hover .image {
+            opacity: 0.3;
+        }
+        .container:hover .middle {
+            opacity: 1;
+            color: #d9aa01;
+        }
+        .text {
+            background-color: #000000;
+            font-size: 10px;
+            padding: 10px;
+        }
+        .text a{
+            color: #fafeff;
+        }
+        .circle:before {
+            content: ' \25CF';
+            font-size: 50px;
+            color: crimson;
+        }
+        .circle1:before {
+            content: ' \25CF';
+            font-size: 50px;
+            color: #c5d3dc;
+        }
+        .circle2:before {
+            content: ' \25CF';
+            font-size: 50px;
+            color: #56dcd6;
+        }
+        .pagination  .page-link{
+            background: #000000;
+            color: white;
+        }
+        .nav .nav-link:hover{
+            background-color: white;
+        }
+
+        /*.card-body:hover .itemButtons{
+            display: block;
+            height: 100px;
+
+        }*/
+        .footer1{
+            font-family: 'Oswald', sans-serif;
+            color: #cecece;
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div class="container">
+
+        <nav class="nav justify-content-center" id="topNav">
+            <a class="navbar-brand" href="index.html" >
+                <img src="http://brand2d.com/deacons/wp-content/uploads/2017/10/Deacons-logo.png" height="75"  alt="">
+            </a>
+        </nav>
+    </div>
+    <hr>
+    <div >
+        <ul class="nav justify-content-left " id="nav2">
+            <li>
+                <div class="dropdown">
+                    <a href="#" class="nav-link" role="button" id="dropdownMenuLink1"
+                       data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="true">Women</a>
+                    <div class="dropdown-content">
+                        <a  href="products2.html">Accessories</a>
+                        <a  href="products2.html">Coats & Jackets</a>
+                        <a  href="products2.html">Dresses</a>
+                        <a  href="products2.html">Jeans</a>
+                        <a  href="products2.html">Jumpers & Cardigans</a>
+                        <a  href="products2.html">Lingerie</a>
+                        <a  href="products2.html">Nightwear & Slippers</a>
+                        <a  href="products2.html">Skirts</a>
+                        <a  href="products2.html">Tops & Shirts</a>
+                        <a  href="products2.html">Bottoms</a>
+                        <a  href="products2.html">Footwear</a>
+                        <a  href="products2.html">Active wear</a>
+                    </div>
+
+                </div>
+            </li>
+            <li  class="dropdown open" style="position: initial;">
+                <div class="dropdown">
+                    <a href="#" class="nav-link">Men</a>
+                    <div class="dropdown-content">
+                        <a  href="products.html">Accessories</a>
+                        <a  href="products.html">Coats & Jackets</a>
+                        <a  href="products.html">Dresses</a>
+                        <a  href="products.html">Jeans</a>
+                        <a  href="products.html">Jumpers & Cardigans</a>
+                        <a  href="products.html">Lingerie</a>
+                        <a  href="products.html">Nightwear & Slippers</a>
+                        <a  href="products.html">Skirts</a>
+                        <a  href="products.html">Tops & Shirts</a>
+                        <a  href="products.html">Bottoms</a>
+                        <a  href="products.html">Footwear</a>
+                        <a  href="products.html">Active wear</a>
+                    </div>
+                </div>
+            </li>
+            <li  class="dropdown open" style="position: initial;">
+                <div class="dropdown">
+                    <a  href="#" class="nav-link">Children</a>
+                    <div class="dropdown-content">
+                        <a class="" href="products.html">Accessories</a>
+                        <a class="" href="products.html">Coats & Jackets</a>
+                        <a class="" href="products.html">Dresses</a>
+                        <a class="" href="products.html">Jeans</a>
+                        <a class="" href="products.html">Jumpers & Cardigans</a>
+                        <a class="" href="products.html">Lingerie</a>
+                        <a class="" href="products.html">Nightwear & Slippers</a>
+                        <a class="" href="products.html">Skirts</a>
+                        <a class="" href="products.html">Tops & Shirts</a>
+                        <a class="" href="products.html">Bottoms</a>
+                        <a class="" href="products.html">Footwear</a>
+                        <a class="" href="products.html">Active wear</a>
+                    </div>
+                </div>
+            </li>
+            <li  class="dropdown open" style="position: initial;">
+                <div class="dropdown">
+                    <a href="#" class="nav-link">Baby Products</a>
+                    <div class="dropdown-content">
+                        <a class="" href="products.html">Accessories</a>
+                        <a class="" href="products.html">Coats & Jackets</a>
+                        <a class="" href="products.html">Dresses</a>
+                        <a class="" href="products.html">Jeans</a>
+                        <a class="" href="products.html">Jumpers & Cardigans</a>
+                        <a class="" href="products.html">Lingerie</a>
+                        <a class="" href="products.html">Nightwear & Slippers</a>
+                        <a class="" href="products.html">Skirts</a>
+                        <a class="" href="products.html">Tops & Shirts</a>
+                        <a class="" href="products.html">Bottoms</a>
+                        <a class="" href="products.html">Footwear</a>
+                        <a class="" href="products.html">Active wear</a>
+                    </div>
+                </div>
+            </li>
+            <li  class="dropdown open" style="position: initial;">
+                <div class="dropdown">
+                    <a href="#" class="nav-link">Fitness and Gym</a>
+                    <div class="dropdown-content">
+                        <a href="products.html">Accessories</a>
+                        <a href="products.html">Coats & Jackets</a>
+                        <a href="products.html">Dresses</a>
+                        <a href="products.html">Jeans</a>
+                        <a href="products.html">Jumpers & Cardigans</a>
+                        <a href="products.html">Lingerie</a>
+                        <a href="products.html">Nightwear & Slippers</a>
+                        <a href="products.html">Skirts</a>
+                        <a href="products.html">Tops & Shirts</a>
+                        <a href="products.html">Bottoms</a>
+                        <a href="products.html">Footwear</a>
+                        <a href="products.html">Active wear</a>
+                    </div>
+                </div>
+            </li>
+            <form class="form-inline" >
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="dropdown" style="position: inherit;">
+                            <button class="btn  dropdown-toggle" type="button" data-toggle="dropdown" style="border-radius: 0;background-color: black;color: white">Get Items
+                                <span class="caret"></span></button>
+                        </div>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Search Item" aria-label="Username" aria-describedby="basic-addon1" style="width: 400px">
+                </div>
+            </form>
+            <ul class="nav  " >
+                <li  class="dropdown open">
+                    <a style="color:black" href="#" >
+                        <div >
+                            <a class="nav-link " href="#">Log In</a>
+                        </div>
+                    </a>
+                </li>
+                <li  class="dropdown open" style="position: initial;">
+                    <a style="color: black" href="cart.html" >
+                        <div style="padding-top: 7px;padding-right: 10px" >
+                            <i class="fa fa-shopping-cart" aria-hidden="true" style="font-size: 25px" ></i>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </ul>
+    </div>
+    <hr>
+    <div class="grid-container">
+        <div class="grid-item item1">
+            <h5 style="padding-top: 10px;text-align: center;color: #b1b1b1">Categories</h5>
+            <nav class="nav flex-column">
+                <a class="nav-link active" href="#">Active</a>
+                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link disabled" href="#">Disabled</a>
+            </nav>
+            <hr>
+
+
+        </div>
+        <div class="grid-item item2" >
+            <div class="container-fluid" >
+                <div style="border: solid 1px;height: 30px "></div>
+                <h2 style="text-align: center"></h2>
+                <div class="row" style="padding-top: 30px">
+                    <div class="col-3 "  style="text-align: center">
+                        <div class="container">
+                            <img src="bossini/1 (18).jpg" alt="Avatar" class="image" style="width:100%">
+                            <a href="#" data-toggle="modal" data-target="#myModal">
+                                <div class="middle">
+                                    <div class="text">View</div>
+                                </div>
+                            </a>
+                        </div>
+                        <span> Item Brand </span><br>
+                        <span>KSH 9500</span>
+                    </div>
+                    <div class="col-3" style="text-align: center">
+                        <div class="container">
+                            <img src="bossini/1 (19).jpg" alt="Avatar" class="image" style="width:100%">
+                            <a href="#" data-toggle="modal" data-target="#myModal">
+                                <div class="middle">
+                                    <div class="text">View</div>
+                                </div>
+                            </a>
+                        </div>
+                        <span> Item Brand </span><br>
+                        <span>KSH 9500</span>
+                    </div>
+                    <div class="col-3" style="text-align: center">
+                        <div class="container">
+                            <img src="bossini/1 (20).jpg" alt="Avatar" class="image" style="width:100%">
+                            <a href="#" data-toggle="modal" data-target="#myModal">
+                                <div class="middle">
+                                    <div class="text">View</div>
+                                </div>
+                            </a>
+                        </div>
+                        <span> Item Brand </span><br>
+                        <span>KSH 9500</span>
+                    </div>
+                    <div class="col-3" style="text-align: center">
+                        <div class="container">
+                            <img src="bossini/1 (21).jpg" alt="Avatar" class="image" style="width:100%">
+                            <a href="#" data-toggle="modal" data-target="#myModal">
+                                <div class="middle">
+                                    <div class="text">View</div>
+                                </div>
+                            </a>
+                        </div>
+                        <span> Item Brand </span><br>
+                        <span>KSH 9500</span>
+                    </div>
+
+                </div>
+                <div class="row" style="padding-top: 30px">
+                    <div class="col-3 "  style="text-align: center">
+                        <div class="container">
+                            <img src="bossini/1 (22).jpg" alt="Avatar" class="image" style="width:100%">
+                            <a href="#" data-toggle="modal" data-target="#myModal">
+                                <a href="#" data-toggle="modal" data-target="#myModal">
+                                    <div class="middle">
+                                        <div class="text">View</div>
+                                    </div>
+                                </a>
+                            </a>
+                        </div>
+                        <span> Item Brand </span><br>
+                        <span>KSH 9500</span>
+                    </div>
+                    <div class="col-3" style="text-align: center">
+                        <div class="container">
+                            <img src="bossini/1 (23).jpg" alt="Avatar" class="image" style="width:100%">
+                            <a href="#" data-toggle="modal" data-target="#myModal">
+                                <div class="middle">
+                                    <div class="text">View</div>
+                                </div>
+                            </a>
+                        </div>
+                        <span> Item Brand </span><br>
+                        <span>KSH 9500</span>
+                    </div>
+                    <div class="col-3" style="text-align: center">
+                        <div class="container">
+                            <img src="bossini/1 (24).jpg" alt="Avatar" class="image" style="width:100%">
+                            <a href="#" data-toggle="modal" data-target="#myModal">
+                                <div class="middle">
+                                    <div class="text">View</div>
+                                </div>
+                            </a>
+                        </div>
+                        <span> Item Brand </span><br>
+                        <span>KSH 9500</span>
+                    </div>
+                    <div class="col-3" style="text-align: center">
+                        <div class="container">
+                            <img src="bossini/1 (25).jpg" alt="Avatar" class="image" style="width:100%">
+                            <a href="#" data-toggle="modal" data-target="#myModal">
+                                <div class="middle">
+                                    <div class="text">View</div>
+                                </div>
+                            </a>
+                        </div>
+                        <span> Item Brand </span><br>
+                        <span>KSH 9500</span>
+                    </div>
+
+                </div>
+                <div class="row" style="padding-top: 30px">
+                    <div class="col-3 "  style="text-align: center">
+                        <div class="container">
+                            <img src="bossini/1 (26).jpg" alt="Avatar" class="image" style="width:100%">
+                            <a href="#" data-toggle="modal" data-target="#myModal">
+                                <a href="#" data-toggle="modal" data-target="#myModal">
+                                    <div class="middle">
+                                        <div class="text">View</div>
+                                    </div>
+                                </a>
+                            </a>
+                        </div>
+                        <span> Item Brand </span><br>
+                        <span>KSH 9500</span>
+                    </div>
+                    <div class="col-3" style="text-align: center">
+                        <div class="container">
+                            <img src="bossini/1 (27).jpg" alt="Avatar" class="image" style="width:100%">
+                            <a href="#" data-toggle="modal" data-target="#myModal">
+                                <a href="#" data-toggle="modal" data-target="#myModal">
+                                    <div class="middle">
+                                        <div class="text">View</div>
+                                    </div>
+                                </a>
+                            </a>
+                        </div>
+                        <span> Item Brand </span><br>
+                        <span>KSH 9500</span>
+                    </div>
+                    <div class="col-3" style="text-align: center">
+                        <div class="container">
+                            <img src="bossini/1 (28).jpg" alt="Avatar" class="image" style="width:100%">
+                            <a href="#" data-toggle="modal" data-target="#myModal">
+                                <div class="middle">
+                                    <div class="text">View</div>
+                                </div>
+                            </a>
+                        </div>
+                        <span> Item Brand </span><br>
+                        <span>KSH 9500</span>
+                    </div>
+                    <div class="col-3" style="text-align: center">
+                        <div class="container">
+                            <img src="bossini/1 (29).jpg" alt="Avatar" class="image" style="width:100%">
+                            <a href="#" data-toggle="modal" data-target="#myModal">
+                                <div class="middle">
+                                    <div class="text">View</div>
+                                </div>
+                            </a>
+                        </div>
+                        <span> Item Brand </span><br>
+                        <span>KSH 9500</span>
+                    </div>
+
+                </div>
+                <hr>
+                <nav aria-label="Page navigation example" style="padding-top: 20px">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">Previous</a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+                <hr>
+            </div>
+        </div>
+        <!--<div class="grid-item item3" v-if="show">
+
+            <div class="container-fluid" style=" border-left: solid 1px ">
+                <a class="nav-link" style="font-size: 50px;">Delivery</a>
+                <div class="row">
+                    <div class="col-5">
+                        <div >
+                            <h3 style="text-align: center"> ITEMS</h3>
+                            <table class="table" >
+                                <thead >
+                                <tr >
+                                    <th >Product</th>
+                                    <th >Qty</th>
+                                    <th colspan="2">Each</th>
+                                    <th >Total</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="noBorder">
+                                    <th ><img src="https://cdn.shopify.com/s/files/1/0832/5243/products/OBEY_Eighty_Nine_Solid_Box_Tee_White_131080226_WHT_1_small.jpg?v=1517007156" ></th>
+                                    <td><br><br><div style="width:inherit;height:25px ;border: solid 2px darkgrey;text-align: center"><span>2</span></div></td>
+                                    <td  colspan="2"><br><br><span>SH 500</span></td>
+                                    <td><br><br><span>SH 1000</span></td>
+                                </tr>
+                                <tr class="noBorder">
+                                    <th ><img src="https://cdn.shopify.com/s/files/1/0832/5243/products/OBEY_Eighty_Nine_Icon_LS_Box_Tee_Black_Multi_131030079_BKM_1_small.jpg?v=1516663769" ></th>
+                                    <td><br><br><div style="width:inherit;height:25px ;border: solid 2px darkgrey;text-align: center"><span>2</span></div></td>
+                                    <td  colspan="2"><br><br><span>SH 500</span></td>
+                                    <td><br><br><span>SH 1000</span></td>
+                                </tr>
+                                <tr class="noBorder">
+                                    <th ><img src="https://cdn.shopify.com/s/files/1/0832/5243/products/OBEY_Easy_Camo_Pant_Psycho_Camo_142020110_CAM_1_small.jpg?v=1516669892" ></th>
+                                    <td><br><br><div style="width:inherit;height:25px ;border: solid 2px darkgrey;text-align: center;"><span>2</span></div></td>
+                                    <td  colspan="2"><br><br><span>SH 500</span></td>
+                                    <td><br><br><span>SH 1000</span></td>
+                                </tr>
+                                <tr class="noBorder">
+                                    <td><a class="nav-link">Sub Total </a><br><a class="nav-link">Delivery</a> </td>
+
+                                    <td colspan="3"></td>
+                                    <td><a class="nav-link">KSH 3000</a><br><a class="nav-link"> KSH 200</a></td>
+
+                                </tr>
+
+                                <tr class="noBorder">
+                                    <td><a class="nav-link"> Total </a> </td>
+
+                                    <td colspan="3"></td>
+                                    <td><a class="nav-link">KSH 3200</a></td>
+
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>-->
+    </div>
+    <footer>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-1">
+
+                </div>
+                <div class="col-3" style="text-align: center;">
+                    <img src="bossini/Deacons-logo.png" height="40"><br>
+                    <a href="#">
+                        <span class="footer1"></span>
+                    </a><br>
+                    <a href="#">
+                        <span class="footer1"> </span>
+                    </a><br>
+                </div>
+                <div class="col-3">
+                    <h3 class="footer1" style="text-align: center">Contact us </h3>
+                </div>
+                <div class="col-3">
+                    <h3 class="footer1">Connect with us</h3>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content"  style="border-radius: 0;">
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="container" style="overflow-y: scroll">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" href="#">
+                                            <img src="SIA3225-1-300x449.jpg " height="120">
+                                        </a>
+                                        <a class="nav-link" href="#">
+                                            <img src="SIA3225-1-300x449.jpg " height="120">
+                                        </a>
+                                        <a class="nav-link" href="#">
+                                            <img src="SIA3225-1-300x449.jpg" height="120">
+                                        </a>
+                                        <a class="nav-link" href="#">
+                                            <img src="SIA3225-1-300x449.jpg" height="120">
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="col-md-5 ml-auto">
+                                <img src="SIA3225-1-300x449.jpg" height="500">
+                            </div>
+                            <div class="col-md-4" style="text-align: center;font-family: 'Montserrat', sans-serif;">
+                                <h3>A Dress</h3>
+                                <div style="padding-left:25px;padding-right:25px;padding-top: 0">
+                                    <hr>
+                                </div>
+                                <br>
+                                <br>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function myMap() {
+        var mapOptions = {
+            center: new google.maps.LatLng(51.5, -0.12),
+            zoom: 10,
+            mapTypeId: google.maps.MapTypeId.HYBRID
+        }
+        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+    }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9EmgbTaE1Cre9lTiSgJFEkzWVyp38sek&callback=myMap"></script>
+<script src="https://unpkg.com/popper.js/dist/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+        el:'#app',
+        data:{
+            show:true
+
+        },
+        methods: {
+            handleScroll: function (event) {
+                var app = this
+                var element = document.getElementById("nav2")
+                var rect = element.getBoundingClientRect();
+                console.log(rect.top)
+
+            },
+
+        },
+
+        created: function () {
+            window.addEventListener('scroll', this.handleScroll);
+        },
+        destroyed: function () {
+            window.removeEventListener('scroll', this.handleScroll);
+        }
+    })
+</script>
+</html>
+<!-- <a href="#">
+           <div class="dropdown">
+               <a class="dropbtn">Brands</a>
+               <div class="dropdown-content" style="height: 300px;">
+               </div>
+           </div>
+       </a>-->
+
+
+<!-- <transition name="slide-fade">
+     <div class="sideNav" v-if="show">
+         <ul class="nav flex-column">
+             <li class="nav-item">
+                 <a class="nav-link active" href="#">Active</a>
+             </li>
+             <li class="nav-item">
+                 <a class="nav-link" href="#">Link</a>
+             </li>
+             <li class="nav-item">
+                 <a class="nav-link" href="#">Link</a>
+             </li>
+             <li class="nav-item">
+                 <a class="nav-link disabled" href="#">Disabled</a>
+             </li>
+         </ul>
+     </div>
+ </transition>
+
+ <div class="toggled"  id="cont" >
+     &lt;!&ndash;<button class="btn"  v-on:click="toggle()" style="position: fixed"><i class="fa fa-bars"></i></button>&ndash;&gt;
+     <div>
+
+     </div>
+ </div>-->

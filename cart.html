@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="anime.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <title>Cart</title>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Raleway:400,100,300,500,700,900);
+        * {
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        html {
+            background-color: #ECEEF4;
+            font-family: "Raleway", sans-serif;
+        }
+
+        .container {
+            max-width: 60rem;
+            margin: 0 auto;
+        }
+
+        .form__name {
+            color: #B9BAC5;
+            padding: 10px;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin-top: 60px;
+        }
+
+        .form__container {
+            width: 100%;
+            min-height: 300px;
+            background-color: #fff;
+            border: 1px solid #DADDE8;
+            border-radius: 5px;
+            padding: 30px;
+            margin-bottom: 100px;
+        }
+
+        .personal--form {
+            color: #A4A9C5;
+            font-size: 0.7rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-weight: 700;
+            padding: 10px 55px;
+            margin-top: 10px;
+        }
+        .personal--form .last {
+            margin-left: 40px;
+        }
+        .personal--form .first, .personal--form .last, .personal--form .email {
+            display: inline-block;
+        }
+        .personal--form .first label, .personal--form .last label, .personal--form .email label {
+            margin-bottom: 10px;
+        }
+        .personal--form .first label, .personal--form .first input, .personal--form .last label, .personal--form .last input, .personal--form .email label, .personal--form .email input {
+            display: block;
+            min-width: 250px;
+        }
+        .personal--form .email {
+            margin-top: 20px;
+        }
+        .personal--form .email input {
+            width: 540px;
+        }
+
+        .shipping--form {
+            color: #A4A9C5;
+            font-size: 0.7rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-weight: 700;
+            padding: 10px 55px;
+            margin-top: 10px;
+        }
+        .shipping--form .row.two, .shipping--form .row.three {
+            margin-top: 20px;
+        }
+        .shipping--form .address-two, .shipping--form .state, .shipping--form .country {
+            margin-left: 40px;
+        }
+        .shipping--form .address, .shipping--form .address-two, .shipping--form .city, .shipping--form .state, .shipping--form .zip, .shipping--form .country {
+            display: inline-block;
+        }
+        .shipping--form .address label, .shipping--form .address-two label, .shipping--form .city label, .shipping--form .state label, .shipping--form .zip label, .shipping--form .country label {
+            margin-bottom: 10px;
+        }
+        .shipping--form .address label, .shipping--form .address input, .shipping--form .address-two label, .shipping--form .address-two input, .shipping--form .city label, .shipping--form .city input, .shipping--form .state label, .shipping--form .state input, .shipping--form .zip label, .shipping--form .zip input, .shipping--form .country label, .shipping--form .country input {
+            display: block;
+            min-width: 250px;
+        }
+
+        .form__question {
+            padding: 10px 55px;
+            color: #646E8A;
+        }
+        .form__question p {
+            display: inline-block;
+            margin-left: 10px;
+            font-weight: 500;
+            vertical-align: middle;
+        }
+        .form__question input[type=checkbox] {
+            cursor: pointer;
+            display: inline-block;
+            vertical-align: middle;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background-color: transparent;
+            border-radius: 3px;
+            border: 2px solid #646E8A;
+            -webkit-transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .form__question input[type=checkbox]:checked {
+            background-color: #18C2C0;
+        }
+
+        input {
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            background: transparent;
+            border: 1px solid #A4A9C5;
+            border-radius: 3px;
+            outline: none;
+            padding: 10px;
+            -webkit-transition: border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            color: #18C2C0;
+        }
+        input:-webkit-autofill {
+            -webkit-box-shadow: 0 0 0px 1000px white inset;
+            -webkit-text-fill-color: #18C2C0;
+        }
+        input:focus {
+            border-color: #18C2C0;
+        }
+        input::-webkit-input-placeholder {
+            font-weight: 500;
+            color: #646E8A;
+        }
+        input:-ms-input-placeholder {
+            font-weight: 500;
+            color: #646E8A;
+        }
+        input::-ms-input-placeholder {
+            font-weight: 500;
+            color: #646E8A;
+        }
+        input::placeholder {
+            font-weight: 500;
+            color: #646E8A;
+        }
+
+        .form__confirmation {
+            padding: 10px 55px;
+        }
+
+        button {
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+            background-color: #18C2C0;
+            border: 1px solid #DADDE8;
+            color: #fff;
+            padding: 18px;
+            border-radius: 5px;
+            outline: none;
+            -webkit-transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            left: 80%;
+        }
+        button:hover {
+            background-color: #15aeac;
+        }
+        button:active {
+            background-color: #139b99;
+        }
+
+        .box {
+            cursor: default;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            display: inline-block;
+            font-size: 1.5rem;
+            font-weight: 400;
+            height: 40px;
+            width: 40px;
+            line-height: 35px;
+            border-radius: 50px;
+            border: 2px solid #646E8A;
+            text-align: center;
+            color: #646E8A;
+        }
+        .box.billing {
+            line-height: 30px;
+        }
+
+        section {
+            margin-top: 50px;
+        }
+        section:nth-child(1) {
+            margin-top: 0px;
+        }
+
+        .sections span {
+            color: #646E8A;
+            text-transform: uppercase;
+            font-weight: 500;
+            letter-spacing: 1px;
+            margin-left: 15px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="vv">
+    <div class="container">
+
+        <nav class="nav justify-content-center" id="topNav">
+            <a class="navbar-brand" href="index.html" >
+                <img src="http://brand2d.com/deacons/wp-content/uploads/2017/10/Deacons-logo.png" height="75"  alt="">
+            </a>
+        </nav>
+    </div>
+    <hr>
+    <div >
+        <ul class="nav justify-content-left " id="nav2">
+            <li>
+                <div class="dropdown">
+                    <a href="#" class="nav-link" role="button" id="dropdownMenuLink1"
+                       data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="true">Women</a>
+                    <div class="dropdown-content">
+                        <a  href="products2.html">Accessories</a>
+                        <a  href="products2.html">Coats & Jackets</a>
+                        <a  href="products2.html">Dresses</a>
+                        <a  href="products2.html">Jeans</a>
+                        <a  href="products2.html">Jumpers & Cardigans</a>
+                        <a  href="products2.html">Lingerie</a>
+                        <a  href="products2.html">Nightwear & Slippers</a>
+                        <a  href="products2.html">Skirts</a>
+                        <a  href="products2.html">Tops & Shirts</a>
+                        <a  href="products2.html">Bottoms</a>
+                        <a  href="products2.html">Footwear</a>
+                        <a  href="products2.html">Active wear</a>
+                    </div>
+
+                </div>
+            </li>
+            <li  class="dropdown open" style="position: initial;">
+                <div class="dropdown">
+                    <a href="#" class="nav-link">Men</a>
+                    <div class="dropdown-content">
+                        <a  href="products2.html">Accessories</a>
+                        <a  href="products2.html">Coats & Jackets</a>
+                        <a  href="products2.html">Dresses</a>
+                        <a  href="products2.html">Jeans</a>
+                        <a  href="products2.html">Jumpers & Cardigans</a>
+                        <a  href="products2.html">Lingerie</a>
+                        <a  href="products2.html">Nightwear & Slippers</a>
+                        <a  href="products2.html">Skirts</a>
+                        <a  href="products2.html">Tops & Shirts</a>
+                        <a  href="products2.html">Bottoms</a>
+                        <a  href="products2.html">Footwear</a>
+                        <a  href="products2.html">Active wear</a>
+                    </div>
+                </div>
+            </li>
+            <li  class="dropdown open" style="position: initial;">
+                <div class="dropdown">
+                    <a  href="#" class="nav-link">Children</a>
+                    <div class="dropdown-content">
+                        <a class="" href="products.html">Accessories</a>
+                        <a class="" href="products.html">Coats & Jackets</a>
+                        <a class="" href="products.html">Dresses</a>
+                        <a class="" href="products.html">Jeans</a>
+                        <a class="" href="products.html">Jumpers & Cardigans</a>
+                        <a class="" href="products.html">Lingerie</a>
+                        <a class="" href="products.html">Nightwear & Slippers</a>
+                        <a class="" href="products.html">Skirts</a>
+                        <a class="" href="products.html">Tops & Shirts</a>
+                        <a class="" href="products.html">Bottoms</a>
+                        <a class="" href="products.html">Footwear</a>
+                        <a class="" href="products.html">Active wear</a>
+                    </div>
+                </div>
+            </li>
+            <li  class="dropdown open" style="position: initial;">
+                <div class="dropdown">
+                    <a href="#" class="nav-link">Baby Products</a>
+                    <div class="dropdown-content">
+                        <a class="" href="products.html">Accessories</a>
+                        <a class="" href="products.html">Coats & Jackets</a>
+                        <a class="" href="products.html">Dresses</a>
+                        <a class="" href="products.html">Jeans</a>
+                        <a class="" href="products.html">Jumpers & Cardigans</a>
+                        <a class="" href="products.html">Lingerie</a>
+                        <a class="" href="products.html">Nightwear & Slippers</a>
+                        <a class="" href="products.html">Skirts</a>
+                        <a class="" href="products.html">Tops & Shirts</a>
+                        <a class="" href="products.html">Bottoms</a>
+                        <a class="" href="products.html">Footwear</a>
+                        <a class="" href="products.html">Active wear</a>
+                    </div>
+                </div>
+            </li>
+            <li  class="dropdown open" style="position: initial;">
+                <div class="dropdown">
+                    <a href="#" class="nav-link">Fitness and Gym</a>
+                    <div class="dropdown-content">
+                        <a href="products.html">Accessories</a>
+                        <a href="products.html">Coats & Jackets</a>
+                        <a href="products.html">Dresses</a>
+                        <a href="products.html">Jeans</a>
+                        <a href="products.html">Jumpers & Cardigans</a>
+                        <a href="products.html">Lingerie</a>
+                        <a href="products.html">Nightwear & Slippers</a>
+                        <a href="products.html">Skirts</a>
+                        <a href="products.html">Tops & Shirts</a>
+                        <a href="products.html">Bottoms</a>
+                        <a href="products.html">Footwear</a>
+                        <a href="products.html">Active wear</a>
+                    </div>
+                </div>
+            </li>
+            <form class="form-inline" >
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="dropdown" style="position: inherit;">
+                            <button class="btn  dropdown-toggle" type="button" data-toggle="dropdown" style="border-radius: 0;background-color: black;color: white">Get Items
+                                <span class="caret"></span></button>
+                        </div>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Search Item" aria-label="Username" aria-describedby="basic-addon1" style="width: 400px">
+                </div>
+            </form>
+            <ul class="nav  " >
+                <li  class="dropdown open">
+                    <a style="color:black" href="#" >
+                        <div >
+                            <a class="nav-link " href="#">Log In</a>
+                        </div>
+                    </a>
+                </li>
+                <li  class="dropdown open" style="position: initial;">
+                    <a style="color: black" href="cart.html" >
+                        <div style="padding-top: 7px;padding-right: 10px" >
+                            <i class="fa fa-shopping-cart" aria-hidden="true" style="font-size: 25px" ></i>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </ul>
+    </div>
+    <hr >
+    <div id="app">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="container-fluid" >
+                    <div class="row">
+                        <div class="col-3"></div>
+                        <div class="col-6">
+                            <div class="form__name">Check Out Form</div>
+                            <div class="form__container">
+                                <section class="form__personal">
+                                    <div class="sections">
+                                        <div class="box">1</div><span>Personal Information</span>
+                                    </div>
+                                    <div class="personal--form">
+                                        <form class="form--name" action="">
+                                            <div class="first">
+                                                <label for="firstname">First Name</label>
+                                                <input placeholder="e.g.Tesfa" id="firstname" type="text" />
+                                            </div>
+                                            <div class="last">
+                                                <label for="firstname">Last Name</label>
+                                                <input placeholder="e.g. Ozem" id="firstname" type="text" />
+                                            </div>
+                                            <div class="email">
+                                                <label for="firstname">Email</label>
+                                                <input placeholder="e.g. rb@apple.com" id="firstname" type="email" />
+                                            </div>
+                                            <div class="email">
+                                                <label for="firstname">Phone</label>
+                                                <input placeholder="+254" id="firstname" type="number" />
+                                            </div>
+                                        </form>
+                                    </div>
+                                </section>
+                                <section class="form__billing">
+                                    <div class="sections">
+                                        <div class="box billing">2</div><span>Location</span>
+                                    </div>
+                                    <div class="shipping--form">
+                                        <form class="form--shipping" action="">
+                                            <div class="row one">
+                                                <div class="address">
+                                                    <label for="address-one">City</label>
+                                                    <select class="custom-select" id="address-one">
+                                                        <option selected>Choose...</option>
+                                                        <option value="1">Nairobi</option>
+                                                        <option value="2">Kisumu</option>
+                                                        <option value="3">Eldoret</option>
+                                                    </select>
+                                                </div>
+                                                <div class="address-two">
+                                                    <label for="address-two">Region</label>
+                                                    <select class="custom-select" id="address-one">
+                                                        <option selected>Choose...</option>
+                                                        <option value="1">Westlands</option>
+                                                        <option value="2">C.B.D</option>
+                                                        <option value="3">Ngong Road</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row two">
+                                                <div class="city">
+                                                    <label for="city">Delivery adress</label>
+                                                    <input placeholder="e.g. Muthangari drive" id="city" type="text" />
+                                                </div>
+
+                                            </div>
+                                        </form>
+                                    </div>
+                                </section>
+                                <section class="form__shipping">
+                                    <div class="sections">
+                                        <div class="box">3</div><span>Payment Option</span>
+                                    </div>
+                                    <div class="shipping--form">
+                                        <form class="form--shipping" action="">
+                                            <div class="row one">
+                                                <div class="address">
+                                                    <h4>Mpesa</h4>
+                                                    <label for="address-one">Number</label>
+                                                    <input id="address-two" type="text" />
+
+                                                </div>
+                                                <div class="address-two">
+                                                    <h4>Card</h4>
+                                                    <label for="address-two">Card Number</label>
+                                                    <input id="address-two" type="text" />
+                                                </div>
+                                            </div>
+                                            <div class="row two" >
+                                                <div class="city" style="display: none">
+                                                    <label for="city">City</label>
+                                                    <input placeholder="" id="city" type="text" />
+                                                </div>
+                                                <div class="state" style="padding-left: 250px">
+                                                    <label for="state">CVC</label>
+                                                    <input placeholder="e.g. 344" id="state" type="text" />
+                                                </div>
+                                            </div>
+                                            <div class="row three">
+                                                <div class="zip" style="display: none">
+                                                    <label for="zip">Zip / Postal Code</label>
+                                                    <input placeholder="" id="zip" type="text" />
+                                                </div>
+                                                <div class="country" style="padding-left: 250px">
+                                                    <label for="country">Expiration Date</label>
+                                                    <input placeholder="e.g. 3/11" id="country" type="text" />
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </section>
+                                <div class="form__question">
+                                    <input type="checkbox" />
+                                    <p>Confirm your order</p>
+                                </div>
+                                <div class="form__confirmation">
+                                    <button>Confirm Information</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3" style="padding-top: 150px;border: none" v-if="show">
+                            <div >
+                                <h3 style="text-align: center"> ITEMS</h3>
+                                <table class="table" >
+                                    <thead >
+                                    <tr >
+                                        <th >Product</th>
+                                        <th >Qty</th>
+                                        <th colspan="2">Each</th>
+                                        <th >Total</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr class="noBorder">
+                                        <th ><img src="https://cdn.shopify.com/s/files/1/0832/5243/products/OBEY_Eighty_Nine_Solid_Box_Tee_White_131080226_WHT_1_small.jpg?v=1517007156" ></th>
+                                        <td><br><br><div style="width:inherit;height:25px ;border: solid 2px darkgrey;text-align: center"><span>2</span></div></td>
+                                        <td  colspan="2"><br><br><span>SH 500</span></td>
+                                        <td><br><br><span>SH 1000</span></td>
+                                    </tr>
+                                    <tr class="noBorder">
+                                        <th ><img src="https://cdn.shopify.com/s/files/1/0832/5243/products/OBEY_Eighty_Nine_Icon_LS_Box_Tee_Black_Multi_131030079_BKM_1_small.jpg?v=1516663769" ></th>
+                                        <td><br><br><div style="width:inherit;height:25px ;border: solid 2px darkgrey;text-align: center"><span>2</span></div></td>
+                                        <td  colspan="2"><br><br><span>SH 500</span></td>
+                                        <td><br><br><span>SH 1000</span></td>
+                                    </tr>
+                                    <tr class="noBorder">
+                                        <th ><img src="https://cdn.shopify.com/s/files/1/0832/5243/products/OBEY_Easy_Camo_Pant_Psycho_Camo_142020110_CAM_1_small.jpg?v=1516669892" ></th>
+                                        <td><br><br><div style="width:inherit;height:25px ;border: solid 2px darkgrey;text-align: center;"><span>2</span></div></td>
+                                        <td  colspan="2"><br><br><span>SH 500</span></td>
+                                        <td><br><br><span>SH 1000</span></td>
+                                    </tr>
+                                    <tr class="noBorder">
+                                        <td><a class="nav-link">Sub Total </a><br><a class="nav-link">Delivery</a> </td>
+
+                                        <td colspan="3"></td>
+                                        <td><a class="nav-link">KSH 3000</a><br><a class="nav-link"> KSH 200</a></td>
+
+                                    </tr>
+
+                                    <tr class="noBorder">
+                                        <td><a class="nav-link"> Total </a> </td>
+
+                                        <td colspan="3"></td>
+                                        <td><a class="nav-link">KSH 3200</a></td>
+
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+        el:'#app',
+        data:{
+            show:false
+
+        },
+        methods: {
+            handleScroll: function (event) {
+                var app = this
+                var element = document.getElementById("nav2")
+                var rect = element.getBoundingClientRect();
+                console.log(rect.top)
+
+            },
+
+        },
+
+        created: function () {
+            window.addEventListener('scroll', this.handleScroll);
+        },
+        destroyed: function () {
+            window.removeEventListener('scroll', this.handleScroll);
+        }
+    })
+</script>
+</html>
